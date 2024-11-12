@@ -14,13 +14,13 @@ with io.open(
     exec(f.read(), about)
 
 setup(
-    name="tutor-minio",
+    name="uamx-tutor-minio",
     version=about["__version__"],
     url="https://docs.tutor.edly.io/",
     project_urls={
         "Documentation": "https://docs.tutor.edly.io/",
-        "Code": "https://github.com/overhangio/tutor-minio",
-        "Issue tracker": "https://github.com/overhangio/tutor-minio/issues",
+        "Code": "https://github.com/UAMx/uamx-tutor-minio",
+        "Issue tracker": "https://github.com/UAMx/uamx-tutor-minio/issues",
         "Community": "https://discuss.openedx.org",
     },
     license="AGPLv3",
@@ -35,7 +35,7 @@ setup(
     python_requires=">=3.8",
     install_requires=["tutor>=16.0.0,<17.0.0"],
     extras_require={"dev": "tutor[dev]>=16.0.0,<17.0.0"},
-    entry_points={"tutor.plugin.v1": ["minio = tutorminio.plugin"]},
+    entry_points={"tutor.plugin.v1": ["uamx-minio = tutorminio.plugin"]},
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",

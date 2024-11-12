@@ -57,4 +57,4 @@ This Tutor plugin is maintained by Fahad Khalid from `Edly <https://edly.io>`__.
 License
 -------
 
-This work is licensed under the terms of the `GNU Affero General Public License (AGPL) <https://github.com/overhangio/tutor-minio/blob/master/LICENSE.txt>`_.
+This work is licensed under the terms of the `GNU Affero General Public License (AGPL) <https://github.com/UAMx/uamx-tutor-minio/blob/master/LICENSE.txt>`_.
