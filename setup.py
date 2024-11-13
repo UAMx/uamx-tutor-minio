@@ -9,7 +9,7 @@ with io.open(os.path.join(here, "README.rst"), "rt", encoding="utf8") as f:
 
 about = {}
 with io.open(
-    os.path.join(here, "tutorminio", "__about__.py"), "rt", encoding="utf-8"
+    os.path.join(here, "uamxtutorminio", "__about__.py"), "rt", encoding="utf-8"
 ) as f:
     exec(f.read(), about)
 
@@ -35,7 +35,7 @@ setup(
     python_requires=">=3.8",
     install_requires=["tutor>=16.0.0,<17.0.0"],
     extras_require={"dev": "tutor[dev]>=16.0.0,<17.0.0"},
-    entry_points={"tutor.plugin.v1": ["uamx-minio = tutorminio.plugin"]},
+    entry_points={"tutor.plugin.v1": ["uamx-minio = uamxtutorminio.plugin"]},
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",

@@ -32,8 +32,8 @@ config: dict[str, dict[str, t.Any]] = {
         "DOCKER_IMAGE": "docker.io/minio/minio:RELEASE.2022-03-26T06-49-28Z.hotfix.26ec6a857",
         "MC_DOCKER_IMAGE": "docker.io/minio/mc:RELEASE.2022-03-31T04-55-30Z",
         "GATEWAY": None,
-        "MINIO_UAMX_NAMESPACE": None,
-        "MINIO_UAMX_CLASSNAME": None,
+        "UAMX_NAMESPACE": None,
+        "UAMX_CLASSNAME": None,
     },
     "unique": {
         "AWS_SECRET_ACCESS_KEY": "{{ 24|random_string }}",
@@ -78,7 +78,7 @@ with open(
 
 # Add the "templates" folder as a template root
 tutor_hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
-    pkg_resources.resource_filename("tutorminio", "templates")
+    pkg_resources.resource_filename("uamxtutorminio", "templates")
 )
 # Render the "build" and "apps" folders
 tutor_hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
@@ -90,7 +90,7 @@ tutor_hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
 # Load patches from files
 for path in glob(
     os.path.join(
-        pkg_resources.resource_filename("tutorminio", "patches"),
+        pkg_resources.resource_filename("uamxtutorminio", "patches"),
         "*",
     )
 ):

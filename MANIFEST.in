@@ -1,2 +1,2 @@
-recursive-include tutorminio/patches *
-recursive-include tutorminio/templates *
+recursive-include uamxtutorminio/patches *
+recursive-include uamxtutorminio/templates *
