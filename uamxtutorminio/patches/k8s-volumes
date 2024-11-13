@@ -13,6 +13,6 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 5Gi
+      storage: {{ MINIO_UAMX_STORAGE }}
   storageClassName: {{ MINIO_UAMX_STORAGECLASSNAME }}
 {% endif %}
