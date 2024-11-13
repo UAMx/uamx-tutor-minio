@@ -33,7 +33,7 @@ config: dict[str, dict[str, t.Any]] = {
         "MC_DOCKER_IMAGE": "docker.io/minio/mc:RELEASE.2022-03-31T04-55-30Z",
         "GATEWAY": None,
         "UAMX_NAMESPACE": None,
-        "UAMX_CLASSNAME": None,
+        "UAMX_STORAGECLASSNAME": None,
     },
     "unique": {
         "AWS_SECRET_ACCESS_KEY": "{{ 24|random_string }}",

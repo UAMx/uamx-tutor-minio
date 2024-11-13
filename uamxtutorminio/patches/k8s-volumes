@@ -14,5 +14,5 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: {{ MINIO_UAMX_CLASSNAME }}
+  storageClassName: {{ MINIO_UAMX_STORAGECLASSNAME }}
 {% endif %}
