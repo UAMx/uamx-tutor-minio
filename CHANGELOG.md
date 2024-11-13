@@ -19,7 +19,7 @@ instructions, because git commits are used to generate release notes:
 
 <!-- scriv-insert-here -->
 
-<a id='changelog-16.0.7'></a>
+<a id='changelog-16.0.9'></a>
 ## v16.0.4 (2024-03-12)
 
 - [Bugfix] Fix a 403 error on exporting course content when the minio plugin is enabled. (by @FahadKhalid210)
