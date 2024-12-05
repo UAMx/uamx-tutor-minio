@@ -1,7 +1,6 @@
 variables:
     TUTOR_PLUGIN: uamx-minio
     TUTOR_PYPI_PACKAGE: uamx-tutor-minio
-    OPENEDX_RELEASE: palm
     GITHUB_REPO: UAMx/uamx-tutor-minio
 
 include:

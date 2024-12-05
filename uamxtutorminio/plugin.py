@@ -4,7 +4,7 @@ import os
 import typing as t
 from glob import glob
 
-import pkg_resources
+import importlib_resources
 from tutor import hooks as tutor_hooks
 from tutor.__about__ import __version_suffix__
 
@@ -24,6 +24,8 @@ config: dict[str, dict[str, t.Any]] = {
         "VIDEO_UPLOAD_BUCKET_NAME": "openedxvideos",
         "HOST": "files.{{ LMS_HOST }}",
         "CONSOLE_HOST": "minio.{{ LMS_HOST }}",
+        "GRADES_BUCKET_NAME": "openedxgrades",
+        "QUERYSTRING_AUTH": True,
         # https://hub.docker.com/r/minio/minio/tags
         # https://hub.docker.com/r/minio/mc/tags
         # We must stick to these older releases because they are the last ones that support gateway mode to Azure:
@@ -35,6 +37,7 @@ config: dict[str, dict[str, t.Any]] = {
         "UAMX_NAMESPACE": None,
         "UAMX_STORAGECLASSNAME": None,
         "UAMX_STORAGE": "5Gi",
+        "DISCOVERY_BUCKET_NAME": "{% if 'discovery' in PLUGINS %}discoveryuploads{% endif %}",
     },
     "unique": {
         "AWS_SECRET_ACCESS_KEY": "{{ 24|random_string }}",
@@ -79,7 +82,7 @@ with open(
 
 # Add the "templates" folder as a template root
 tutor_hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
-    pkg_resources.resource_filename("uamxtutorminio", "templates")
+    str(importlib_resources.files("uamxtutorminio") / "templates")
 )
 # Render the "build" and "apps" folders
 tutor_hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
@@ -89,12 +92,7 @@ tutor_hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
     ],
 )
 # Load patches from files
-for path in glob(
-    os.path.join(
-        pkg_resources.resource_filename("uamxtutorminio", "patches"),
-        "*",
-    )
-):
+for path in glob(str(importlib_resources.files("uamxtutorminio") / "patches" / "*")):
     with open(path, encoding="utf-8") as patch_file:
         tutor_hooks.Filters.ENV_PATCHES.add_item(
             (os.path.basename(path), patch_file.read())

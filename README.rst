@@ -27,6 +27,7 @@ Configuration
 - ``MINIO_CONSOLE_HOST`` (default: ``"minio.{{ LMS_HOST }}"``)
 - ``MINIO_DOCKER_IMAGE`` (default: ``"docker.io/minio/minio:RELEASE.2022-05-08T23-50-31Z"``)
 - ``MINIO_MC_DOCKER_IMAGE`` (default: ``"docker.io/minio/mc:RELEASE.2022-05-09T04-08-26Z"``)
+- ``MINIO_GRADES_BUCKET_NAME`` (default: ``"openedxgrades"``)
 
 These values can be modified with ``tutor config save --set PARAM_NAME=VALUE`` commands.
 
@@ -39,7 +40,7 @@ Note to Azure users: you will have to manually grant public access rights to the
 DNS records
 -----------
 
-It is assumed that the ``MINIO_HOST`` DNS record points to your server. When running MinIO on your laptop, the MinIO Web UI will be available at http://minio.local.overhang.io. In development mode, the MinIO interface will be available at http://minio.local.overhang.io:9001.
+It is assumed that the ``MINIO_HOST`` DNS record points to your server. When running MinIO on your laptop, the MinIO Web UI will be available at http://minio.local.edly.io. In development mode, the MinIO interface will be available at http://minio.local.edly.io:9001.
 
 Web UI
 ------
@@ -52,7 +53,7 @@ The MinIO web UI can be accessed at http://<MINIO_HOST>. The credentials for acc
 Troubleshooting
 ---------------
 
-This Tutor plugin is maintained by Fahad Khalid from `Edly <https://edly.io>`__. Community support is available from the official `Open edX forum <https://discuss.openedx.org>`__. Do you need help with this plugin? See the `troubleshooting <https://docs.tutor.edly.io/troubleshooting.html>`__ section from the Tutor documentation.
+This Tutor plugin is maintained by Muhammad Faraz Maqsood from `Edly <https://edly.io>`__. Community support is available from the official `Open edX forum <https://discuss.openedx.org>`__. Do you need help with this plugin? See the `troubleshooting <https://docs.tutor.edly.io/troubleshooting.html>`__ section from the Tutor documentation.
 
 License
 -------
