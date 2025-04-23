@@ -35,6 +35,9 @@ config: dict[str, dict[str, t.Any]] = {
         "DOCKER_IMAGE": "docker.io/minio/minio:RELEASE.2022-03-26T06-49-28Z.hotfix.26ec6a857",
         "MC_DOCKER_IMAGE": "docker.io/minio/mc:RELEASE.2022-03-31T04-55-30Z",
         "GATEWAY": None,
+        "UAMX_NAMESPACE": None,
+        "UAMX_STORAGECLASSNAME": None,
+        "UAMX_STORAGE": "5Gi",
         "DISCOVERY_BUCKET_NAME": "{% if 'discovery' in PLUGINS %}discoveryuploads{% endif %}",
     },
     "unique": {
@@ -80,7 +83,7 @@ with open(
 
 # Add the "templates" folder as a template root
 tutor_hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
-    str(importlib_resources.files("tutorminio") / "templates")
+    str(importlib_resources.files("uamxtutorminio") / "templates")
 )
 # Render the "build" and "apps" folders
 tutor_hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
@@ -90,7 +93,7 @@ tutor_hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
     ],
 )
 # Load patches from files
-for path in glob(str(importlib_resources.files("tutorminio") / "patches" / "*")):
+for path in glob(str(importlib_resources.files("uamxtutorminio") / "patches" / "*")):
     with open(path, encoding="utf-8") as patch_file:
         tutor_hooks.Filters.ENV_PATCHES.add_item(
             (os.path.basename(path), patch_file.read())

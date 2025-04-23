@@ -1,7 +1,7 @@
 variables:
-    TUTOR_PLUGIN: minio
-    TUTOR_PYPI_PACKAGE: tutor-minio
-    GITHUB_REPO: overhangio/tutor-minio
+    TUTOR_PLUGIN: uamx-minio
+    TUTOR_PYPI_PACKAGE: uamx-tutor-minio
+    GITHUB_REPO: UAMx/uamx-tutor-minio
 
 include:
   - project: 'community/tutor-ci'
